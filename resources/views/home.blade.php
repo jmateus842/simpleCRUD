@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <html>
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -10,12 +10,14 @@
     </head>
     <body>
     @auth
+        <div class="container d-flex justify-content-center">
         <p>You are logged in</p>
         <form action="/logout" method="POST">
             @csrf
             <button>LOG OUT</button>
         </form>
-        <div>
+        </div>
+        <div class="container d-flex justify-content-center">
             <h2>Crear Nueva Queja</h2>
             <form action="/create-post" method="POST">
                 @csrf
@@ -36,31 +38,51 @@
                     </div>
                 </div>
             </form>
+        </div>
         @else
-        <div style="border: 3px solid black;">
-            <h2>Register</h2>
+        <div class="container d-flex justify-content-center">
             <form action="/register" method="POST">
                 @csrf
-                <input name="name" type="text" placeholder="name">
-                <input name="email" type="text" placeholder="email">
-                <input name="password" type="password" placeholder="password">
-                <button>register</button>
+            <div class="form-group">
+                <h2>Register</h2>
+                <label> Name
+                <input class="form-control" name="name" type="text" placeholder="name">
+                </label>
+            </div>
+                <div class="form-group">
+                    <label> Email
+                    <input class="form-control" name="email" type="email" placeholder="email">
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>Password
+                    <input class="form-control" name="password" type="password" placeholder="password">
+                    </label>
+                </div>
+                    <input type="submit" class="btn btn-primary" value="Registro">
+
             </form>
         </div>
-        <div style="border: 3px solid black;">
-            <h2>Login</h2>
+        <div class="container d-flex justify-content-center">
             <form action="/login" method="POST">
                 @csrf
-                <input name="loginname" type="text" placeholder="name">
-                <input name="loginpassword" type="password" placeholder="password">
-                <button>login</button>
+
+                <div class="form-group">
+                    <label>Name
+                <input class="form-control" name="loginname" type="text" placeholder="name">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Password
+                    <input class="form-control" name="loginpassword" type="password" placeholder="password">
+                    </label>
+                </div>
+                <input type="button" value="Login" class="btn btn-primary">
             </form>
+
         </div>
     @endauth
     </body>
     </html>
 @endsection
-
-
-
-
