@@ -18,12 +18,12 @@ class UserController extends Controller
         if(auth()->attempt(['name' => $IncomingFields['loginname'], 'password' => $IncomingFields['loginpassword']])){
             $request->session()->regenerate();
         }
-        return redirect('/');
+        return redirect('/home');
     }
     public function logout()
     {
         @auth() -> logout();
-        return redirect('/');
+        return redirect('/home');
     }
 
     public function register(Request $request){
@@ -36,7 +36,7 @@ class UserController extends Controller
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $user = User::create($incomingFields);
         auth()->login($user);
-        return redirect('/');
+        return redirect('/home');
     }
 }
 

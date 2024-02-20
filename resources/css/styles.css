@@ -1,0 +1,31 @@
+/* public/css/styles.css */
+body {
+    background-color: #000; /* Black background */
+    color: #00ff00; /* Neon green text */
+    font-family: 'Courier New', monospace; /* Classic terminal font */
+}
+
+form {
+    border: 2px solid #00ff00; /* Green border */
+    padding: 20px;
+}
+
+input[type="text"], input[type="password"], textarea {
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+}
+
+button {
+    background-color: #00ff00;
+    color: #000;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* For a subtle glitch effect (optional) */
+h1 {
+    text-shadow: 2px 0 0 #ff0000, -2px 0 0 #0000ff;
+}
+

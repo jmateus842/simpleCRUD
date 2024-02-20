@@ -1,13 +1,39 @@
-@extends('layouts.app')
-@section('content')
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-    </head>
+ <html>
+ <head>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">
+     <link rel="stylesheet" href="/css/app.css">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+
+     <style>
+         body {
+             background-color: #000; /* Black background */
+             color: #00ff00; /* Neon green text */
+             font-family: 'Courier New', monospace; /* Classic terminal font */
+         }
+
+         form {
+             border: 2px solid #00ff00; /* Green border */
+             padding: 20px;
+         }
+
+         input[type="text"], input[type="password"], textarea {
+             background-color: #000;
+             color: #00ff00;
+             border: 1px solid #00ff00;
+         }
+
+         button {
+             background-color: #00ff00;
+             color: #000;
+             border: none;
+             padding: 8px 15px;
+             cursor: pointer;
+         }
+     </style>
+ </head>
     <body>
     @auth
         <p>You are logged in</p>
@@ -16,7 +42,7 @@
             <button>LOG OUT</button>
         </form>
         <div>
-            <h2>Crear Nueva Queja</h2>
+            <h2>Crear Nueva Publicacion</h2>
             <form action="/create-post" method="POST">
                 @csrf
 
@@ -36,6 +62,12 @@
                     </div>
                 </div>
             </form>
+            <div><a href="{{ route('posts.index') }}"><button>Ver todas las Publicaciones</button></a></div>
+            <div>@auth
+                    <a href="{{ route('posts.deletepage') }}"><button class="btn btn-danger">Eliminar una publicacion</button></a>
+                @endauth
+            </div>
+
         @else
         <div style="border: 3px solid black;">
             <h2>Register</h2>
@@ -59,7 +91,7 @@
     @endauth
     </body>
     </html>
-@endsection
+
 
 
 
