@@ -64,6 +64,17 @@ class PostController extends Controller
         }
     }
 
+    public function search(Request $request)
+    {
+        $request->validate(['title' => 'required']); // Validate title
+
+        $posts = Post::where('title', 'like', '%' . $request->title . '%')
+            ->get();
+
+        return view('search-post', ['posts' => $posts]);
+    }
+
+
 
 
 }

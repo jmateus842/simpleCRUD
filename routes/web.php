@@ -60,5 +60,13 @@ Route::delete('/delete-post', [PostController::class, 'destroy'])->name('posts.d
 
 Route::delete('/delete-posts', [PostController::class, 'destroyMultiple'])->name('posts.destroyMultiple');
 
+Route::get('/search-post', function () {
+    return view('search-post'); // Loads your welcome.blade.php
+});//ruta para buscar por titulo
+Route::get('/search-post', [PostController::class, 'search'])->name('posts.search');
+
+//para la tabla de contratos
+use App\Http\Controllers\ContratosController;
+Route::resource('contratos', ContratosController::class);
 
 

@@ -69,7 +69,7 @@
 </div>
 
 <div class="second-secret-message" id="second-secret-message" style="display: none">
-    <h3>................</h3>
+    <h3>...Ya mas ayuda no hay...</h3>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -104,7 +104,7 @@
 
         setInterval(function() {
             $('#second-secret-message').toggle();
-        }, 29000); // Show/hide second secret message every 15 seconds
+        }, 27000); // Show/hide second secret message every 15 seconds
     });
 </script>
 

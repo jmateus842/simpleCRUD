@@ -67,7 +67,11 @@
                     <a href="{{ route('posts.deletepage') }}"><button class="btn btn-danger">Eliminar una publicacion</button></a>
                 @endauth
             </div>
-
+            <div>
+                <a href="{{ route('contratos.index') }}" class="btn btn-primary">
+                    Ver Contratos
+                </a>
+            </div>
         @else
         <div style="border: 3px solid black;">
             <h2>Register</h2>

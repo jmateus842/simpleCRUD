@@ -3,21 +3,7 @@
 <head>
     <title>My Posts</title>
     <style>
-        /* Hacker Styles */
-        body {
-            background-color: #000; /* Black background */
-            color: #00ff00; /* Neon green text */
-            font-family: 'Courier New', monospace; /* Classic terminal font */
-        }
-        container {
-            background-color: #000; /* Black background */
-            color: #00ff00; /* Neon green text */
-            font-family: 'Courier New', monospace; /* Classic terminal font */
-        }
-
-        h1, h2 {
-            color: #00ff00; /* Heading text in neon green */
-        }
+        /* Your existing 'Hacker Styles' here */
     </style>
 </head>
 
@@ -26,15 +12,25 @@
     <h1>My posts</h1>
     @auth
         <div>
-                <a href="{{ route('home') }}"><button>Ver las Publicaciones</button></a>
+            <a href="{{ route('home') }}"><button>Ver las Publicaciones</button></a>
         </div>
         @if ($posts->count())
-            @foreach ($posts as $post)
-                <div>
-                    <h2>{{ $post->title }}</h2>
-                    <p>{{ $post->body }}</p>
-                </div>
-            @endforeach
+            <table>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($posts as $post)
+                    <tr>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->body }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         @else
             <p>You haven't created any posts yet.</p>
         @endif
